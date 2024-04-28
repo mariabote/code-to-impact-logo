@@ -1,9 +1,10 @@
 cti {
-    --width: 100px;
-    --margin: 20px;
-    --logo-width: calc(var(--width) - 2 * var(--margin));
-    --line-width: 3px;
-    --code-height: 26px;
+    --width: 200px;
+    --logo-width: calc(var(--width) * 0.6);
+    --line-width: calc(var(--width) * 0.03);
+    --code-height: calc(var(--width) * 0.26);
+    --to-height: calc(var(--width) * 0.05);
+    --impact-height: calc(var(--width) * 0.2);
     --code-container-height: calc(var(--code-height) - var(--line-width));
     --hyphen-width: var(--code-container-height);
     --transition: all 0.2s ease;
@@ -12,9 +13,12 @@ cti {
 
     width: var(--width);
     aspect-ratio: 1;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-size: calc(2 * var(--line-width));
@@ -22,27 +26,25 @@ cti {
     text-transform: uppercase;
 
     &>logo {
-        // width: var(--logo-width);
-        margin: var(--margin);
+        width: var(--logo-width);
         margin-bottom: 0px;
 
         display: grid;
         justify-items: center;
         align-items: center;
-        grid-template-rows: var(--code-height) 5px 20px;
+        grid-template-rows: var(--code-height) var(--to-height) var(--impact-height);
 
         &>div {
-            width: var(--logo-width);
+            width: 100%;
         }
 
         &>.code {
             display: grid;
             align-items: center;
             justify-items: center;
+            justify-content: center;
+            grid-template-columns: var(--code-container-height) calc(var(--logo-width) - 2 * var(--code-height)) var(--code-container-height);
             font-size: calc(var(--code-container-height) * 0.65);
-            grid-template-columns:
-                var(--code-container-height) calc(var(--logo-width) - 2 * var(--code-height)) var(--code-container-height);
-            transform: translate(var(--line-width), 0px);
 
             &>deco {
                 transition: var(--transition);
@@ -63,12 +65,13 @@ cti {
 
         &>.to {
             text-align: center;
+            transform: translate(0px, var(--line-width));
         }
 
         &>.impact {
             width: 100%;
-            height: 20px;
-            font-size: 10px;
+            height: var(--impact-height);
+            font-size: calc(0.5 * var(--impact-height));
             display: grid;
             grid-template-columns: 50% 50%;
             overflow: hidden;
@@ -98,7 +101,7 @@ cti {
             &>column:last-child {
                 text-align: right;
                 justify-items: end;
-                transform: translate(0px, -10px);
+                transform: translate(0px, calc(-0.5 * var(--impact-height)));
             }
 
         }
@@ -107,8 +110,6 @@ cti {
 
     &>footer {
         width: var(--logo-width);
-        height: 10px;
-        overflow: hidden;
         margin: 0px;
         margin-top: var(--line-width);
 
@@ -134,7 +135,7 @@ cti:hover {
         }
 
         &__slidedown {
-            transform: translate(0px, -10px) !important;
+            transform: translate(0px, calc(-0.5 * var(--impact-height))) !important;
         }
 
         &__slidezero {
