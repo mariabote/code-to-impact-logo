@@ -1,0 +1,15 @@
+{
+  "name": "cti_logo",
+  "version": "0.1.0",
+  "description": "Code To Impact Logo",
+  "main": "index.html",
+  "scripts": {
+    "sass": "node-sass style.scss style.css -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maria Bote Alonso",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
