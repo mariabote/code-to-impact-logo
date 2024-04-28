@@ -1,17 +1,17 @@
 cti {
-    --width: 200px;
-    --logo-width: calc(var(--width) * 0.6);
-    --line-width: calc(var(--width) * 0.03);
-    --code-height: calc(var(--width) * 0.26);
-    --to-height: calc(var(--width) * 0.05);
-    --impact-height: calc(var(--width) * 0.2);
+    --size: 200px;
+    --logo-width: calc(var(--size) * 0.6);
+    --line-width: calc(var(--size) * 0.03);
+    --code-height: calc(var(--size) * 0.20);
+    --to-height: calc(var(--size) * 0.05);
+    --impact-height: calc(var(--size) * 0.3);
     --code-container-height: calc(var(--code-height) - var(--line-width));
-    --hyphen-width: var(--code-container-height);
+    --hyphen-width: var(--code-height);
     --transition: all 0.2s ease;
 
     background: linear-gradient(90deg, #ff66c4, #ffde59);
 
-    width: var(--width);
+    width: var(--size);
     aspect-ratio: 1;
 
     display: flex;
@@ -20,13 +20,27 @@ cti {
     justify-content: center;
 
     font-family: "Poppins", sans-serif;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: var(--line-width);
     font-size: calc(2 * var(--line-width));
     color: white;
     text-transform: uppercase;
 
+    &.horizontal {
+        width: calc(3*var(--size));
+        aspect-ratio: 3/1 ;
+        &>logo {
+            display: flex;
+            flex-direction: row;
+            margin: 0px;
+            margin-top: calc(2 * var(--line-width));
+        }
+    }
+
     &>logo {
-        width: var(--logo-width);
+        width: 60%;
+        margin: 20%;
+        margin-top: 10%;
         margin-bottom: 0px;
 
         display: grid;
@@ -39,51 +53,57 @@ cti {
         }
 
         &>.code {
-            display: grid;
-            align-items: center;
-            justify-items: center;
-            justify-content: center;
-            grid-template-columns: var(--code-container-height) calc(var(--logo-width) - 2 * var(--code-height)) var(--code-container-height);
-            font-size: calc(var(--code-container-height) * 0.65);
+            width: 100%;
+            height: var(--code-height);
+            font-size: calc(var(--code-container-height) * 0.7);
+            position: relative;
+
+            &>div {
+                text-align: center;
+                margin: auto;
+                transform: translate(calc(0.5 * var(--line-width)), calc(0.5 * var(--line-width)));
+            }
 
             &>deco {
+                display: block;
+                height: 100%;
+                aspect-ratio: 1;
+                position: absolute;
                 transition: var(--transition);
 
                 &.left {
-                    height: var(--code-container-height);
-                    aspect-ratio: 1;
                     box-shadow: calc(-1 * var(--line-width)) var(--line-width) 0px white;
+                    bottom: 0px;
+                    left: var(--line-width);
                 }
 
                 &.right {
-                    height: var(--code-container-height);
-                    aspect-ratio: 1;
                     box-shadow: var(--line-width) calc(-1 * var(--line-width)) 0px white;
+                    top: 0px;
+                    right: var(--line-width);
                 }
             }
         }
 
         &>.to {
             text-align: center;
-            transform: translate(0px, var(--line-width));
+            transform: translate(0px, -11%);
         }
 
         &>.impact {
             width: 100%;
             height: var(--impact-height);
-            font-size: calc(0.5 * var(--impact-height));
+            font-size: calc(0.3 * var(--impact-height));
             display: grid;
             grid-template-columns: 50% 50%;
             overflow: hidden;
 
             &>column {
+                height: calc(1.5 * var(--impact-height));
                 display: grid;
                 align-items: center;
+                grid-template-rows: 33% 33% 33%;
 
-                grid-template-rows: 50% 50% 50%;
-            }
-
-            &>column {
                 transition: var(--transition);
 
                 &>deco {
@@ -96,12 +116,12 @@ cti {
             &>column:first-child {
                 text-align: left;
                 justify-items: start;
+                transform: translate(0px, calc(-0.5 * var(--impact-height)));
             }
 
             &>column:last-child {
                 text-align: right;
                 justify-items: end;
-                transform: translate(0px, calc(-0.5 * var(--impact-height)));
             }
 
         }
@@ -109,14 +129,13 @@ cti {
     }
 
     &>footer {
-        width: var(--logo-width);
+        width: 60%;
         margin: 0px;
         margin-top: var(--line-width);
 
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        font-size: var(--line-width);
         text-align: end;
 
         &>* {
