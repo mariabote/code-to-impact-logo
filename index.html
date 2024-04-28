@@ -17,32 +17,33 @@
 </head>
 
 <body>
-    <div class="cti__background">
-        <div class="cti__wrapper">
-            <div class="cti__logo cti__font">
-                <div class="cti__code">
-                    <div class="cti__lt"></div>
-                    code
-                    <div class="cti__gt"></div>
-                </div>
-                <div class="cti__to">to</div>
-                <div class="cti__impact__container">
+    <cti>
+        <logo>
+            <div class="code">
+                <deco class="left anim__rotate"></deco>
+                <div class="cti__code">code</div>
+                <deco class="right anim__rotate"></deco>
+            </div>
+            <div class="to">to</div>
+            <div class="impact">
+                <column class="anim__slidedown">
+                    <deco></deco>
                     <div>imp</div>
-                    <div class="cti__hyphen"></div>
-                </div>
-                <div class="cti__impact__container">
-                    <div class="cti__hyphen"></div>
+                    <deco></deco>
+                </column>
+                <column class="anim__slidezero">
+                    <deco></deco>
                     <div>act</div>
-                </div>
-
+                    <deco></deco>
+                </column>
             </div>
-            <div class="cti__footer cti__font">
-                Maria Bote<br>
-                developer<br>
-                2024
-            </div>
-        </div>
-    </div>
+        </logo>
+        <footer>
+            Maria Bote<br>
+            developer<br>
+            2024
+        </footer>
+    </cti>
 </body>
 
 </html>
