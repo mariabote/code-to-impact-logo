@@ -1,27 +1,23 @@
 cti {
-    --cti-width: 100px;
+    --width: 100px;
     --margin: 20px;
-    --logo-width: calc(var(--cti-width) - 2 * var(--margin));
-    --impact-line-width: 3px;
+    --logo-width: calc(var(--width) - 2 * var(--margin));
+    --line-width: 3px;
     --code-height: 26px;
-    --code-container-height: calc(var(--code-height) - var(--impact-line-width));
+    --code-container-height: calc(var(--code-height) - var(--line-width));
     --hyphen-width: var(--code-container-height);
-    --transition: transform 0.2s ease;
+    --transition: all 0.2s ease;
 
-    width: var(--cti-width);
-    aspect-ratio: 1;
     background: linear-gradient(90deg, #ff66c4, #ffde59);
+
+    width: var(--width);
+    aspect-ratio: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-
     font-family: "Poppins", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 700;
-    font-style: bold;
-    font-kerning: none;
-    font-size: calc(2 * var(--impact-line-width));
+    font-size: calc(2 * var(--line-width));
     color: white;
     text-transform: uppercase;
 
@@ -33,7 +29,7 @@ cti {
         display: grid;
         justify-items: center;
         align-items: center;
-        grid-template-rows: var(--code-height) 5px 25px;
+        grid-template-rows: var(--code-height) 5px 20px;
 
         &>div {
             width: var(--logo-width);
@@ -46,7 +42,7 @@ cti {
             font-size: calc(var(--code-container-height) * 0.65);
             grid-template-columns:
                 var(--code-container-height) calc(var(--logo-width) - 2 * var(--code-height)) var(--code-container-height);
-            transform: translate(var(--impact-line-width), 0px);
+            transform: translate(var(--line-width), 0px);
 
             &>deco {
                 transition: var(--transition);
@@ -54,13 +50,13 @@ cti {
                 &.left {
                     height: var(--code-container-height);
                     aspect-ratio: 1;
-                    box-shadow: calc(-1 * var(--impact-line-width)) var(--impact-line-width) 0px white;
+                    box-shadow: calc(-1 * var(--line-width)) var(--line-width) 0px white;
                 }
 
                 &.right {
                     height: var(--code-container-height);
                     aspect-ratio: 1;
-                    box-shadow: var(--impact-line-width) calc(-1 * var(--impact-line-width)) 0px white;
+                    box-shadow: var(--line-width) calc(-1 * var(--line-width)) 0px white;
                 }
             }
         }
@@ -88,7 +84,7 @@ cti {
                 transition: var(--transition);
 
                 &>deco {
-                    height: var(--impact-line-width);
+                    height: var(--line-width);
                     width: var(--hyphen-width);
                     background-color: white;
                 }
@@ -111,13 +107,22 @@ cti {
 
     &>footer {
         width: var(--logo-width);
+        height: 10px;
+        overflow: hidden;
         margin: 0px;
+        margin-top: var(--line-width);
 
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        font-size: var(--impact-line-width);
+        font-size: var(--line-width);
         text-align: end;
+
+        &>* {
+            margin: 0px;
+            width: 100%;
+            font-size: var(--line-width);
+        }
     }
 
 }

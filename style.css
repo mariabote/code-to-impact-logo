@@ -1,25 +1,21 @@
 cti {
-  --cti-width: 100px;
+  --width: 100px;
   --margin: 20px;
-  --logo-width: calc(var(--cti-width) - 2 * var(--margin));
-  --impact-line-width: 3px;
+  --logo-width: calc(var(--width) - 2 * var(--margin));
+  --line-width: 3px;
   --code-height: 26px;
-  --code-container-height: calc(var(--code-height) - var(--impact-line-width));
+  --code-container-height: calc(var(--code-height) - var(--line-width));
   --hyphen-width: var(--code-container-height);
-  --transition: transform 0.2s ease;
-  width: var(--cti-width);
-  aspect-ratio: 1;
+  --transition: all 0.2s ease;
   background: linear-gradient(90deg, #ff66c4, #ffde59);
+  width: var(--width);
+  aspect-ratio: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   font-family: "Poppins", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 700;
-  font-style: bold;
-  font-kerning: none;
-  font-size: calc(2 * var(--impact-line-width));
+  font-size: calc(2 * var(--line-width));
   color: white;
   text-transform: uppercase;
 }
@@ -29,7 +25,7 @@ cti > logo {
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-rows: var(--code-height) 5px 25px;
+  grid-template-rows: var(--code-height) 5px 20px;
 }
 cti > logo > div {
   width: var(--logo-width);
@@ -40,7 +36,7 @@ cti > logo > .code {
   justify-items: center;
   font-size: calc(var(--code-container-height) * 0.65);
   grid-template-columns: var(--code-container-height) calc(var(--logo-width) - 2 * var(--code-height)) var(--code-container-height);
-  transform: translate(var(--impact-line-width), 0px);
+  transform: translate(var(--line-width), 0px);
 }
 cti > logo > .code > deco {
   transition: var(--transition);
@@ -48,12 +44,12 @@ cti > logo > .code > deco {
 cti > logo > .code > deco.left {
   height: var(--code-container-height);
   aspect-ratio: 1;
-  box-shadow: calc(-1 * var(--impact-line-width)) var(--impact-line-width) 0px white;
+  box-shadow: calc(-1 * var(--line-width)) var(--line-width) 0px white;
 }
 cti > logo > .code > deco.right {
   height: var(--code-container-height);
   aspect-ratio: 1;
-  box-shadow: var(--impact-line-width) calc(-1 * var(--impact-line-width)) 0px white;
+  box-shadow: var(--line-width) calc(-1 * var(--line-width)) 0px white;
 }
 cti > logo > .to {
   text-align: center;
@@ -75,7 +71,7 @@ cti > logo > .impact > column {
   transition: var(--transition);
 }
 cti > logo > .impact > column > deco {
-  height: var(--impact-line-width);
+  height: var(--line-width);
   width: var(--hyphen-width);
   background-color: white;
 }
@@ -90,12 +86,20 @@ cti > logo > .impact > column:last-child {
 }
 cti > footer {
   width: var(--logo-width);
+  height: 10px;
+  overflow: hidden;
   margin: 0px;
+  margin-top: var(--line-width);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: var(--impact-line-width);
+  font-size: var(--line-width);
   text-align: end;
+}
+cti > footer > * {
+  margin: 0px;
+  width: 100%;
+  font-size: var(--line-width);
 }
 
 cti:hover .anim__rotate {
